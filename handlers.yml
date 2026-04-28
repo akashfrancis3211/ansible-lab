@@ -1,0 +1,19 @@
+---
+- hosts: dev
+  become: yes
+  vars:
+    pkgname: nginx
+
+  tasks:
+    - name: Install NGINX
+      yum:
+        name: "{{ pkgname }}"
+        state: present
+      notify: restart nginx
+
+  handlers:
+    - name: restart nginx
+      service:
+        name: "{{ pkgname }}"
+        state: started
+
