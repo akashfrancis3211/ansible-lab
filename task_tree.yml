@@ -1,0 +1,9 @@
+---
+- hosts: dev
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks:
+    - name: Install Tree on nodes
+      action: yum name=tree state=installed
+

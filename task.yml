@@ -1,0 +1,9 @@
+---
+- hosts: dev
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks:
+    - name: Instal HTTPS on Linux
+      action: yum name=httpd state=installed
+

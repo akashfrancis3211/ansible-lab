@@ -1,0 +1,11 @@
+---
+- hosts: dev
+  user: ansible
+  become: yes
+  connection: ssh
+  vars:
+    pkgname: nginx
+  tasks:
+    - name: Installing NGINX on linux nodes
+      action: yum name='{{pkgname}}' state=installed
+
