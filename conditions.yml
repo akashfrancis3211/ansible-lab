@@ -1,0 +1,9 @@
+- hosts: dev
+  become: yes
+  tasks:
+    - name: Install apache on Debian
+      command: apt-get -y install apache2
+      when: ansible_os_family == "Debian"
+    - name: Install HTTPS on RedHat
+      command: yum -y install httpd
+      when: ansible_os_family == "RedHat"
